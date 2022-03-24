@@ -13,17 +13,6 @@ ARGUMENTS = [
 
 def generate_launch_description():
 
-
-
-    node_control_manager1 = Node(
-        package="mock1",
-        executable="mock1",
-        output={
-            "stdout": "screen",
-            "stderr": "screen",
-        },
-    )
-
     node_control_manager2 = Node(
         package="mock2",
         executable="mock2",
@@ -41,10 +30,19 @@ def generate_launch_description():
             "stderr": "screen",
         },
     )
+    
+    node_control_manager1 = Node(
+        package="mock1",
+        executable="mock1",
+        output={
+            "stdout": "screen",
+            "stderr": "screen",
+        },
+    )
 
     ld = LaunchDescription(ARGUMENTS)
-    ld.add_action(node_control_manager1)
     ld.add_action(node_control_manager2)
     ld.add_action(node_control_manager3)
+    ld.add_action(node_control_manager1)
 
     return ld
