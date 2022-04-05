@@ -30,6 +30,7 @@ int main(int argc, char ** argv)
     int i = 0;
     while (rclcpp::ok()) {
         if(took_message) {
+            RCLCPP_INFO(node->get_logger(), "I took the message!");
             auto msg = std_msgs::msg::String();
             msg.data = "Hello World" + std::to_string(i);
             publisher->publish(msg);
