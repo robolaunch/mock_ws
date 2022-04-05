@@ -19,11 +19,11 @@ int main(int argc, char ** argv)
     rclcpp::init(argc, argv);
     // start a node!
     //rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared("mock1");
-    auto node = std::make_shared<rclcpp::Node>("mock1");
-    auto publisher = node->create_publisher<std_msgs::msg::String>("topic1", 10);
+    auto node = std::make_shared<rclcpp::Node>("temp1");
+    auto publisher = node->create_publisher<std_msgs::msg::String>("x1", 10);
     rclcpp::WallRate loop_rate(1);
     // subscribe to topic3
-    auto subscription = node->create_subscription<std_msgs::msg::String>("topic3", 10, callback);
+    auto subscription = node->create_subscription<std_msgs::msg::String>("x3", 10, callback);
     int i = 0;
     while (rclcpp::ok()) {
         if(took_message) {

@@ -22,11 +22,11 @@ void callback(const std_msgs::msg::String::SharedPtr msg)
 int main(int argc, char ** argv)
 {
     rclcpp::init(argc, argv);
-    rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared("mock2");
-    auto publisher = node->create_publisher<std_msgs::msg::String>("topic2", 10);
+    rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared("temp2");
+    auto publisher = node->create_publisher<std_msgs::msg::String>("x2", 10);
     rclcpp::WallRate loop_rate(1);
     // subscribe to topic1
-    auto subscription = node->create_subscription<std_msgs::msg::String>("topic1", 10, callback);
+    auto subscription = node->create_subscription<std_msgs::msg::String>("x1", 10, callback);
     int i = 0;
     while (rclcpp::ok()) {
         if(took_message) {
