@@ -14,8 +14,8 @@ ARGUMENTS = [
 def generate_launch_description():
 
     node_control_manager2 = Node(
-        package="mock2",
-        executable="mock2",
+        package="mockws2",
+        executable="mockws2",
         output={
             "stdout": "screen",
             "stderr": "screen",
@@ -23,8 +23,8 @@ def generate_launch_description():
     )
 
     node_control_manager3 = Node(
-        package="mock3",
-        executable="mock3",
+        package="mockws3",
+        executable="mockws3",
         output={
             "stdout": "screen",
             "stderr": "screen",
@@ -32,8 +32,8 @@ def generate_launch_description():
     )
     
     node_control_manager1 = Node(
-        package="mock1",
-        executable="mock1",
+        package="mockws1",
+        executable="mockws1",
         output={
             "stdout": "screen",
             "stderr": "screen",

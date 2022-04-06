@@ -1,10 +1,10 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-// This is only true if the executable is mock1
-bool took_message = false;
+// This is only true if the executable is mockws1
+bool took_message = true;
 
-// A subscriber to topic2 that will take the message, and if it is "Hello World", makes the took_message variable true
+// A subscriber to topic3 that will take the message, and if it is "Hello World", makes the took_message variable true
 void callback(const std_msgs::msg::String::SharedPtr msg)
 {
     // if msg-> data starts with "Hello World"
@@ -17,11 +17,13 @@ void callback(const std_msgs::msg::String::SharedPtr msg)
 int main(int argc, char ** argv)
 {
     rclcpp::init(argc, argv);
-    rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared("temp3");
-    auto publisher = node->create_publisher<std_msgs::msg::String>("x3", 10);
+    // start a node!
+    //rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared("mockws1");
+    auto node = std::make_shared<rclcpp::Node>("temp1");
+    auto publisher = node->create_publisher<std_msgs::msg::String>("x1", 10);
     rclcpp::WallRate loop_rate(1);
-    // subscribe to topic2
-    auto subscription = node->create_subscription<std_msgs::msg::String>("x2", 10, callback);
+    // subscribe to topic3
+    auto subscription = node->create_subscription<std_msgs::msg::String>("x3", 10, callback);
     int i = 0;
     while (rclcpp::ok()) {
         if(took_message) {

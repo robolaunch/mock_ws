@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(mock2)
+project(mockws1)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -23,13 +23,13 @@ find_package(std_msgs REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(mock2 src/mock2.cpp)
-ament_target_dependencies(mock2 rclcpp std_msgs)
-target_include_directories(mock2 PUBLIC
+add_executable(mockws1 src/mockws1.cpp)
+ament_target_dependencies(mockws1 rclcpp std_msgs)
+target_include_directories(mockws1 PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
-install(TARGETS mock2
+install(TARGETS mockws1
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

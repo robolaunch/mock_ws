@@ -1,7 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-// This is only true if the executable is mock1
+// This is only true if the executable is mockws1
 bool took_message = false;
 
 // A subscriber to topic1 that will take the message, and if it is "Hello World", makes the took_message variable true
